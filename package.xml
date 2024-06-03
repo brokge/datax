@@ -358,6 +358,13 @@
             <outputDirectory>datax</outputDirectory>
         </fileSet>
         <fileSet>
+            <directory>rediswriter/target/datax/</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+            <outputDirectory>datax</outputDirectory>
+        </fileSet>
+        <fileSet>
             <directory>ocswriter/target/datax/</directory>
             <includes>
                 <include>**/*.*</include>
@@ -478,6 +485,13 @@
         </fileSet>
         <fileSet>
             <directory>loghubwriter/target/datax/</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+            <outputDirectory>datax</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>kafka-writer-datax-plugin/target/datax/</directory>
             <includes>
                 <include>**/*.*</include>
             </includes>

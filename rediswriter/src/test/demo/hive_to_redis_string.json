@@ -1,0 +1,54 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 3
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "hdfsreader",
+          "parameter": {
+            "path": "/user/hive/warehouse/test.db/redis_writer",
+            "defaultFS": "hdfs://xxxxxxxxxxxxx:8020",
+            "column": [
+              {
+                "index": 0,
+                "name": "uid",
+                "type": "string"
+              },
+              {
+                "index": 1,
+                "name": "channels",
+                "type": "string"
+              },
+              {
+                "index": 2,
+                "name": "name",
+                "type": "string"
+              }],
+            "fileType": "text",
+            "encoding": "UTF-8",
+            "fieldDelimiter": "\t"
+          }
+        },
+        "writer": {
+          "name": "rediswriter",
+          "parameter": {
+            "redisMode": "cluster",
+            "address": "xxxxxxxxxxxxx:6379,xxxxxxxxxxxxx:6479,xxxxxxxxxxxxx:6379,xxxxxxxxxxxxx:6479,xxxxxxxxxxxxx:6379,xxxxxxxxxxxxx:6479",
+            "auth": "Pye9WQAYsgetVrLw",
+            "writeType":"string",
+            "config":{
+              "colKey":{"name":"uid","index":0},
+              "colValue":{"name":"name","index":2},
+              "expire":300,
+              "keyPrefix":"datax:string:"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.alibaba.datax</groupId>
@@ -47,7 +48,7 @@
         <module>transformer</module>
 
         <!-- reader -->
-        <module>mysqlreader</module>
+        <!--<module>mysqlreader</module>
         <module>drdsreader</module>
         <module>sqlserverreader</module>
         <module>postgresqlreader</module>
@@ -78,10 +79,10 @@
         <module>opentsdbreader</module>
         <module>loghubreader</module>
         <module>datahubreader</module>
-        <module>starrocksreader</module>
+        <module>starrocksreader</module>-->
 
         <!-- writer -->
-        <module>mysqlwriter</module>
+        <!--<module>mysqlwriter</module>
         <module>starrockswriter</module>
         <module>drdswriter</module>
         <module>oraclewriter</module>
@@ -120,11 +121,13 @@
         <module>cassandrawriter</module>
         <module>clickhousewriter</module>
         <module>doriswriter</module>
+        <module>rediswriter</module>-->
+        <module>kafka-writer-datax-plugin</module>
 
         <!-- common support module -->
         <module>plugin-rdbms-util</module>
         <module>plugin-unstructured-storage-util</module>
-       
+
     </modules>
 
     <dependencyManagement>
@@ -214,7 +217,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
+   <repositories>
         <repository>
             <id>central</id>
             <name>Nexus aliyun</name>
