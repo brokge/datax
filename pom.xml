@@ -123,7 +123,7 @@
         <module>doriswriter</module>
         <module>rediswriter</module>-->
         <module>kafka-writer-datax-plugin</module>
-
+        <module>nebulagraphwriter</module>
         <!-- common support module -->
         <module>plugin-rdbms-util</module>
         <module>plugin-unstructured-storage-util</module>
