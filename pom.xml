@@ -80,7 +80,7 @@
         <module>loghubreader</module>
         <module>datahubreader</module>
         <module>starrocksreader</module>-->
-
+        <module>hdfsreader</module>
         <!-- writer -->
         <!--<module>mysqlwriter</module>
         <module>starrockswriter</module>
@@ -103,9 +103,9 @@
         <module>hbase094xwriter</module>
         <module>hbase11xsqlwriter</module>
         <module>hbase20xsqlwriter</module>
-        <module>kuduwriter</module>
+        <module>kuduwriter</module>-->
         <module>ftpwriter</module>
-        <module>hdfswriter</module>
+        <!--<module>hdfswriter</module>
         <module>txtfilewriter</module>
         <module>streamwriter</module>
 
@@ -122,7 +122,7 @@
         <module>clickhousewriter</module>
         <module>doriswriter</module>
         <module>rediswriter</module>-->
-        <module>kafka-writer-datax-plugin</module>
+        <!--<module>kafka-writer-datax-plugin</module>-->
         <module>nebulagraphwriter</module>
         <!-- common support module -->
         <module>plugin-rdbms-util</module>
