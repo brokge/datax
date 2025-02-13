@@ -118,22 +118,29 @@ public class UnstructuredStorageWriterUtil {
         List<Configuration> writerSplitConfigs = new ArrayList<Configuration>();
         String filePrefix = writerSliceConfig.getString(Key.FILE_NAME);
 
-        String fileSuffix;
-        for (int i = 0; i < mandatoryNumber; i++) {
-            // handle same file name
+        if (mandatoryNumber==1){
             Configuration splitedTaskConfig = writerSliceConfig.clone();
-            String fullFileName = null;
-            fileSuffix = UUID.randomUUID().toString().replace('-', '_');
-            fullFileName = String.format("%s__%s", filePrefix, fileSuffix);
-            while (allFileExists.contains(fullFileName)) {
+            String fullFileName = filePrefix;
+            splitedTaskConfig.set(Key.FILE_NAME, fullFileName);
+            writerSplitConfigs.add(splitedTaskConfig);
+        } else {
+            String fileSuffix;
+            for (int i = 0; i < mandatoryNumber; i++) {
+                // handle same file name
+                Configuration splitedTaskConfig = writerSliceConfig.clone();
+                String fullFileName = null;
                 fileSuffix = UUID.randomUUID().toString().replace('-', '_');
                 fullFileName = String.format("%s__%s", filePrefix, fileSuffix);
+                while (allFileExists.contains(fullFileName)) {
+                    fileSuffix = UUID.randomUUID().toString().replace('-', '_');
+                    fullFileName = String.format("%s__%s", filePrefix, fileSuffix);
+                }
+                allFileExists.add(fullFileName);
+                splitedTaskConfig.set(Key.FILE_NAME, fullFileName);
+                LOG.info(String
+                        .format("splited write file name:[%s]", fullFileName));
+                writerSplitConfigs.add(splitedTaskConfig);
             }
-            allFileExists.add(fullFileName);
-            splitedTaskConfig.set(Key.FILE_NAME, fullFileName);
-            LOG.info(String
-                    .format("splited write file name:[%s]", fullFileName));
-            writerSplitConfigs.add(splitedTaskConfig);
         }
         LOG.info("end do split.");
         return writerSplitConfigs;
